@@ -22,7 +22,7 @@ def findInWord(letter):
 		loc = word.find(letter, start+1)
 	return start >= 0
 
-while guess != word:
+while guess != word.lower():
 	letter = input("Guess a letter: ")[0].lower()
 	if not letter.isalpha():
 		print("Please enter a single letter")
@@ -34,7 +34,7 @@ while guess != word:
 		print("You found a letter! So far, you've found:", guess)
 	else:
 		wrong += 1
-		print("Sorry, that letter is not in the word! You've now made", wrong, "wrong", ( "guess." if wrong == 1 else "guesses."), "You have", 6 - wrong, "wrong", ("guess" if wrong == 5 else "guesses"), "left.")
+		print("Sorry, that letter is not in the word! You've now made", wrong, "wrong", ("guess." if wrong == 1 else "guesses."), "You have", 6 - wrong, "wrong", ("guess" if wrong == 5 else "guesses"), "left.")
 		printImg(wrong)
 		if wrong >= 6:
 			print("Sorry, you've run out of guesses! The word was:", word)
